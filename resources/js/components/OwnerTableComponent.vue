@@ -30,6 +30,18 @@ export default {
                     align: 'left'
                 },
                 {
+                    label: 'number of addresses',
+                    field: 'number_of_addresses',
+                    headerAlign: 'left',
+                    align: 'left'
+                },
+                {
+                    label: 'number of cars',
+                    field: 'number_of_cars',
+                    headerAlign: 'left',
+                    align: 'left'
+                },
+                {
                     label: 'Actions',
                     headerAlign: 'right',
                     align: 'right',
@@ -45,8 +57,8 @@ export default {
     },
     methods: {
         showOwners: function () {
-            axios.get('/owner').then(function (res) {
-                this.rows = res.data.map(o => ({...o, 'type': 'owner'}));
+            axios.get('/owner').then(function (res1) {
+                this.rows = res1.data.map(o => ({...o, 'type': 'owner'}));
             }.bind(this));
         }
     },

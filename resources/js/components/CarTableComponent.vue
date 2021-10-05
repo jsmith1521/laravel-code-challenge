@@ -18,6 +18,22 @@ export default {
                     align: 'center'
                 },
                 {
+                    label: 'Name',
+                    field: 'full_name',
+                    headerAlign: 'left',
+                    align: 'left'
+                },
+                {
+                    label: 'Address',
+                    field: 'address',
+                    headerAlign: 'left',
+                    align: 'left',
+                    interpolate: true,
+                    representedAs: function (r) {
+                        return r.address + '<br>' + r.city + '<br>' + r.country + '<br>' + r.postal_code;
+                    }
+                },
+                {
                     label: 'Make',
                     field: 'make',
                     headerAlign: 'left',
@@ -51,9 +67,14 @@ export default {
     },
     methods: {
         showCars: function () {
-            axios.get('/car').then(function (res) {
-                this.rows = res.data.map(o => ({...o, 'type': 'car'}));
-            }.bind(this));
+            axios.get('/car',{})
+            .then(function (response) {
+                this.rows = response.data.map(o => ({...o, 'type': 'car'}));
+            }.bind(this))
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            });
         }
     },
     created: function () {

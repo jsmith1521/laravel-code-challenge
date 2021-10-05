@@ -20,6 +20,16 @@ Vue.use(VueAxios, axios);
 import 'vuejs-datatable/dist/themes/bootstrap-4.esm';
 import {VuejsDatatableFactory} from 'vuejs-datatable';
 Vue.use(VuejsDatatableFactory);
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+
+// Added package for datatable. Import Bootstrap an BootstrapVue CSS files (order is important)
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+// Make BootstrapVue available throughout your project
+Vue.use(BootstrapVue);
+// Optionally install the BootstrapVue icon components plugin
+Vue.use(IconsPlugin);
 
 /**
  * The following block of code may be used to automatically register your

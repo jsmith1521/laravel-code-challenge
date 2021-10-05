@@ -1,6 +1,8 @@
 import Owners from './components/Owners.vue';
 import Addresses from './components/Addresses.vue';
 import Cars from './components/Cars.vue';
+// add import for viewEdit page
+import ViewEditRecord from './components/ViewEditRecord.vue';
 
 export const routes = [
     {
@@ -17,5 +19,11 @@ export const routes = [
         name: 'cars',
         path: '/cars',
         component: Cars
-    }
+    },
+    // add route for viewEdit page
+    {
+        name: 'ViewEditRecord',
+        path: '/ViewEditRecord/:id/:type',
+        component: ViewEditRecord
+    },
 ];

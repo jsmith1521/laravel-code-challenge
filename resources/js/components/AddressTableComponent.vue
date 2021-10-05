@@ -18,6 +18,12 @@ export default {
                     align: 'center'
                 },
                 {
+                    label: 'Name',
+                    field: 'full_name',
+                    headerAlign: 'left',
+                    align: 'left'
+                },
+                {
                     label: 'Address',
                     field: 'address',
                     headerAlign: 'left',
@@ -26,6 +32,12 @@ export default {
                     representedAs: function (r) {
                         return r.address + '<br>' + r.city + '<br>' + r.country + '<br>' + r.postal_code;
                     }
+                },
+                {
+                    label: 'number of cars',
+                    field: 'number_of_cars',
+                    headerAlign: 'left',
+                    align: 'left'
                 },
                 {
                     label: 'Actions',
@@ -43,13 +55,13 @@ export default {
     },
     methods: {
         showAddresses: function () {
-            axios.get('/address').then(function (res) {
-                this.rows = res.data.map(o => ({...o, 'type': 'address'}));
+            axios.get('/address').then(function (response) {
+                this.rows = response.data.map(o => ({...o, 'type': 'address'}));
             }.bind(this));
-        }
+        },
     },
     created: function () {
         this.showAddresses()
-    }
+    },
 }
 </script>
